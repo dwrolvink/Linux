@@ -1,3 +1,18 @@
+# Variables
+### Defining variable
+```
+varname=value 
+varname='value with spaces'
+varname="value with spaces"
+```
+
+### Using variable
+```
+echo $varname                             # --> "value"
+echo prefix $varname suffix               # --> "prefix value suffix"
+echo prefixnospace$varname suffix         #--> "prefixnospacevalue suffix"
+echo prefixnospace${varname}suffixnospace # --> "prefixnospacevaluesuffixnospace"
+```
 # Comparisons
 While multiple syntaxes may work (or not work) in various forms (terminal v.s. shell script), and there is a difference between comparing strings and integers, some things don't seem to work at all, e.g.:
 - `$> [ "$a"=="value" ]`   <-- doesn't return true or false
