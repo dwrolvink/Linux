@@ -5,6 +5,7 @@ varname=value
 varname='value with spaces'
 varname="value with spaces"
 ```
+> No spaces around = !
 
 ### Using variable
 ```
