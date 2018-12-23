@@ -1,7 +1,9 @@
 # Gitautomata
 The goal of this package (this folder), is to automate everything git related.
 
-Ther current state of the script is to get the code for the back- and frontend of [Konishi](https://github.com/konishi-project) and to get everything running again afterwards.
+Ther current state of the script is to get the code for the back- and frontend of [Konishi](https://github.com/konishi-project) and to get everything running again afterwards. This is done in freshpull.sh
+
+## Freshpull.sh
 
 ### "Fresh"
 The pull is done in such a way that all potential changes on the server side will be overwritten with
