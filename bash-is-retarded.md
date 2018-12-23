@@ -16,12 +16,14 @@ echo prefixnospace${varname}suffixnospace # --> "prefixnospacevaluesuffixnospace
 ```
 # Comparisons
 ### Comparing integers
+```
 if [[ 1 -eq 2 ]];
 then
   echo bla
 else
   echo bleh
 fi
+```
 
 ### Exit script
 `exit`
