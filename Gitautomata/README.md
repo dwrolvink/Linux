@@ -10,3 +10,5 @@ db, etc).
 A couple of config files are saved to ./zimmerman/ and ./higala (not in this repo), and those are
 copied back after the freshpull to keep necessary server config working, that is not in the 
 repository.
+
+All the files prefixed with _ will be dot sourced to every script file.
