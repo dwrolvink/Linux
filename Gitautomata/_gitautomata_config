@@ -1,5 +1,7 @@
 TESTVAR="Config Loaded."
 
+. _private_info_config
+
 # Main website.
 # This will be the main entry point for our website, backend and frontend
 MAINWEBSITE='konishi.pcmrhub.com'
@@ -16,9 +18,13 @@ MAINFOLDER="/var/www"
 DEVFOLDER="/var/www/dev" 
 
 # Frontend
+FRONTENDGIT="https://github.com/konishi-project/higala.git"
 FRONTEND='higala'
 FRONTENDPORT=8080
 
 # Backend
+BACKENDGIT="https://github.com/konishi-project/zimmerman.git"
 BACKEND='zimmerman'
 BACKENDPORT=4000
+
+
