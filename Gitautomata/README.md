@@ -1,7 +1,13 @@
 # Gitautomata
 The goal of this package (this folder), is to automate everything git related.
 
-Ther current state of the script is to get the code for the back- and frontend of [Konishi](https://github.com/konishi-project) and to get everything running again afterwards. This is done in freshpull.sh
+Ther current state of the script is to get the code for the back- and frontend of [Konishi](https://github.com/konishi-project) and to get everything running again afterwards. This is done in freshpull.sh.
+
+### _
+All the files prefixed with _ will be dot sourced to every script file.
+
+### private_info_config
+The git config step can also be automated, but you don't want that here, so that file should be made locally.
 
 ## Freshpull.sh
 
@@ -17,8 +23,4 @@ repository.
 
 This should probably be fixed in the source code (separating all the server-specific config to one file, that is .gitignored). But this works for now.
 
-### _
-All the files prefixed with _ will be dot sourced to every script file.
 
-### private_info_config
-The git config step can also be automated, but you don't want that here, so that file should be made locally.
