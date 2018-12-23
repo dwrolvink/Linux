@@ -1,19 +1,15 @@
-printstep(){
-        BLUE='\033[0;34m'
-        NC='\033[0m' # No Color
-
-        echo -e "${BLUE} ${1} ${NC}"
-}
-
-# Config
+# Load Config
 # --------------------------------
-MAINWEBSITE='konishi.pcmrhub.com'
-FRONTEND='higala'
-FRONTENDPORT=8080
-BACKEND='zimmerman'
-BACKENDPORT=4000
-MAINFOLDER="/var/www"     # Webfolder housing all the websites
-DEVFOLDER="/var/www/dev"  # Webfolder where sites are compiled
+. _functions.sh
+. _gitautomata_config
+
+if [ -z "$TESTVAR" ]
+then
+      printstep "Config file not loaded" error
+      exit      
+else
+      printstep $TESTVAR
+fi
 
 # Stop zimmerman and higala
 # --------------------------------
