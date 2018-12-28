@@ -51,7 +51,7 @@ sudo nano /etc/systemd/system/autoupdate.timer
 id -u dorus # gives the uid (and thus gid)
 sudo mount -t cifs //<server>/<folder> /home/dorus/nwd -o uid=1000,gid=1000
 ```
-> You can't mount just <server>, you need to add <folder>
+> You can't mount just \<server\>, you need to add \<folder\>
 
 > without -o uid, only root will have write rights.
 
