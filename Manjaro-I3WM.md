@@ -46,6 +46,14 @@ sudo nano /etc/systemd/system/autoupdate.timer
  ```
  sudo systemctl enable /etc/systemd/system/autoupdate.timer
  ```
+# Mount network drive (no credentials)
+```
+id -u dorus # gives the uid (and thus gid)
+sudo mount -t cifs //<server>/<folder> /home/dorus/nwd -o uid=1000,gid=1000
+```
+> You can't mount just <server>, you need to add <folder>
+
+> without -o uid, only root will have write rights.
 
 # I3WM Config
 When changes are made to i3, you can reload i3 with Mod+Shift+r
@@ -147,4 +155,6 @@ Vivaldi can't do everything (spotify, for example), so install Chromium too
 6. sudo vboxreload
 7. Turn autoresize off
 8. Turn the status bar off (also in machine settings: turn off mini bar in fullscreen)
+
+
 
