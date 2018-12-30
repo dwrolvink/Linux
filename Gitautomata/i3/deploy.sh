@@ -7,6 +7,7 @@ pacman -Syuu
 pacman -S chromium
 pacman -S pcmanfm
 pacman -S smbclient
+pacman -S lxappearance
 
 # Terminal settings
 unalias cp
