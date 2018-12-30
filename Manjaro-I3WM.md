@@ -46,11 +46,32 @@ sudo nano /etc/systemd/system/autoupdate.timer
  ```
  sudo systemctl enable /etc/systemd/system/autoupdate.timer
  ```
-# Mount network drive (no credentials)
+# Mount network drive on boot (no credentials)
 ```
-id -u dorus # gives the uid (and thus gid)
-sudo mount -t cifs //<server>/<folder> /home/dorus/nwd -o uid=1000,gid=1000
+sudo nano /etc/systemd/system/mountnwd.service
 ```
+```
+[Unit]
+ Description=Mount network drive
+ After=network-online.target
+
+[Service]
+ Type=simple
+ ExecStart=sudo mount -t cifs //<server>/<folder> /home/dorus/nwd -o uid=1000,gid=1000
+ KillMode=process
+ KillSignal=SIGINT
+
+[Install]
+ WantedBy=multi-user.target
+```
+```
+# Enable service (=run at startup)
+ sudo systemctl enable /etc/systemd/system/mountnwd.service
+ 
+ # Test if it works
+  sudo systemctl start mountnwd
+  ```
+
 > You can't mount just \<server\>, you need to add \<folder\>
 
 > without -o uid, only root will have write rights.
