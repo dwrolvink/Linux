@@ -1,4 +1,9 @@
-#!bin/sh
+#!/bin/sh
+
+if [ "$(id -u)" != "0" ]; then
+	echo "Script has to be run as root, exiting."
+	exit 1
+fi
 
 # Update
 pacman -Syuu
