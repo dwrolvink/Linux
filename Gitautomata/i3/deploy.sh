@@ -17,6 +17,9 @@ pacman -S lxappearance --noconfirm
 # Terminal settings
 unalias cp
 
+# Create directories
+sudo -u dorus mkdir /home/dorus/nwd
+
 # Copy files over
 cp -f config /home/dorus/.i3/config
 cp -f mountnwd.service /etc/systemd/system/mountnwd.service
