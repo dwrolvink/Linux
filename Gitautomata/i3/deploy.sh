@@ -9,10 +9,12 @@ fi
 pacman -Syuu
 
 # Install applications
-pacman -S chromium --noconfirm
-pacman -S pcmanfm --noconfirm
-pacman -S smbclient --noconfirm
-pacman -S lxappearance --noconfirm
+pacman -S yay 				--noconfirm
+pacman -S chromium 			--noconfirm
+pacman -S pcmanfm 			--noconfirm
+pacman -S smbclient 			--noconfirm
+pacman -S lxappearance 			--noconfirm
+pacman -S manjaro-settings-samba 	--noconfirm
 
 # Terminal settings
 unalias cp
@@ -27,5 +29,5 @@ cp -f mountnwd.service /etc/systemd/system/mountnwd.service
 # Mount network drive
 cp -f mountnwd.service /etc/systemd/system/mountnwd.service
 systemctl enable /etc/systemd/system/mountnwd.service
-systemctl start mountnwd    #start directly for testing
+
 
