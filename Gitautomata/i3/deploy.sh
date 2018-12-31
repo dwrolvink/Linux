@@ -9,10 +9,10 @@ fi
 pacman -Syuu
 
 # Install applications
-pacman -S chromium
-pacman -S pcmanfm
-pacman -S smbclient
-pacman -S lxappearance
+pacman -S chromium --noconfirm
+pacman -S pcmanfm --noconfirm
+pacman -S smbclient --noconfirm
+pacman -S lxappearance --noconfirm
 
 # Terminal settings
 unalias cp
