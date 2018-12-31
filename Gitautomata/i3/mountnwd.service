@@ -4,7 +4,7 @@
 
 [Service]
  Type=simple
- ExecStart=sudo mount -t cifs //192.188.1.1/USB_Storage /home/dorus/nwd -o uid=1000,gid=1000
+ ExecStart=sudo mount -t cifs //192.168.1.1/USB_Storage /home/dorus/nwd -o uid=1000,gid=1000
  KillMode=process
  KillSignal=SIGINT
 
