@@ -100,7 +100,7 @@ Comment out the following line: `exec --no-startup-id xautolock -time 10 -locker
 Here is a nice .XResources file with a lot of settings: https://gist.github.com/whit/1307597
 
 ### Edit xterm (terminal) colors
-1. Edit file ~/.XResources
+1. Edit file ~/.Xresources
 2. Transparency: 
 ```
 URxvt.transparent: true
@@ -114,7 +114,7 @@ http://terminal.sexy/
 ### Edit i3status bar colors
 That ugly color "lan: 192.168.etc" is hard to find. It's configured not in bar {} in .i3/config but in the i3status.conf file.
 
-1. Copy the file over to the user directory: `cp i3status.conf ~/.i3status.conf`
+1. Copy the file over to the user directory: `cp /etc/i3status.conf ~/.i3status.conf`
 2. `gedit ~/.i3status.conf` the color you are searching for is general{color_good}
 
 
