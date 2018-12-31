@@ -47,15 +47,17 @@ printstep "[Installing user settings]"
 
 # Terminal settings
 unalias cp
-echo "VISUAL=nano; export VISUAL EDITOR=nano; export EDITOR" >> /home/dorus/.profile
+echo "VISUAL=nano; export VISUAL EDITOR=nano; export EDITOR" 	>> /home/dorus/.profile
+echo "URxvt.transparent: true" 					>> /home/dorus/.Xresources
+echo "URxvt.shading:20"						>> /home/dorus/.Xresources
 
 # Create directories
 sudo -u dorus mkdir /home/dorus/nwd
 
 # Copy files over
-cp -f config /home/dorus/.i3/config				# i3 config
-cp    mountnwd.service /etc/systemd/system/mountnwd.service	# Mount network drive
-cp    20-radeon.conf /etc/X11/xorg.conf.d/20-radeon.conf 	# anti tearing
+cp -f .i3/config 	/home/dorus/.i3/config			# i3 config
+cp    mountnwd.service 	/etc/systemd/system/mountnwd.service	# Mount network drive
+cp    20-radeon.conf 	/etc/X11/xorg.conf.d/20-radeon.conf 	# anti tearing
 
 # Mount network drive
 cp -f mountnwd.service /etc/systemd/system/mountnwd.service
@@ -63,5 +65,5 @@ systemctl enable /etc/systemd/system/mountnwd.service
 
 #############################################
 
-prinstep "Run 'unalias cp' as yourself to finish installation." 0
+prinstep "Run 'unalias cp' as yourself, and then reboot to finish installation." 0
 
