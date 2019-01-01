@@ -7,7 +7,7 @@
 ### Set default permissions
 `setfacl -d -m g::rx /var/www`
 
-| Execute is not set on by default, even with the above. Not sure if it is needed for applications, will research later
+> Execute is not set on by default, even with the above. Not sure if it is needed for applications, will research later
 
   * https://www.linuxquestions.org/questions/linux-desktop-74/applying-default-permissions-for-newly-created-files-within-a-specific-folder-605129/
   * https://help.ubuntu.com/community/FilePermissions
