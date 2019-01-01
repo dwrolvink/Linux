@@ -1,6 +1,6 @@
 # Permissions in Linux
 
-##Set permissions so everything in /var/www is readable and executable by all www-data members
+## Set permissions so everything in /var/www is readable and executable by all www-data members
 ### Make it so that all files created in /var/www are owned by group www-data
 `chmod g+s /var/www`
 
