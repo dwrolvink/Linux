@@ -177,5 +177,8 @@ Vivaldi can't do everything (spotify, for example), so install Chromium too
 7. Turn autoresize off
 8. Turn the status bar off (also in machine settings: turn off mini bar in fullscreen)
 
+x1. Set the following settings if the screen doesn't redraw unless you click outside of the screen: 
+
+[Enable 3D and 2D accelaration, video memory 128 mb, vboxvga graphics controller] 
 
 
