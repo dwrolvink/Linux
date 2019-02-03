@@ -19,8 +19,10 @@ pkill <name of process>
 
 ## Input
 __Get stream of input__, like from mouse or keyboard: `sudo libinput debug-events`
+__Get xwindow name__: `xprop`
 
 __Disable middle mouse button__, create ~/.Xmodmap and fill it with: `pointer = 1 6 3 4 5 2`; relogin
 
 ## Fonts
 __List all available fonts__: `fc-list`
+__Get valid font name__: `fc-match <name>`
