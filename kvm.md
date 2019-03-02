@@ -16,6 +16,8 @@ yay -S vmware-workstation
 sudo pacman -Syyu
 
 sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat ebtables
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
 
 cd ~
 mkdir kvm-isos
