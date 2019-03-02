@@ -84,11 +84,11 @@ There may be more elegant/powerful solutions, but they are also more work and mo
 To understand the following steps, you'll need to know a bit about my setup:
 ![network](https://github.com/dwrolvink/Linux/blob/master/images/network.png)
 
-I have the modem/router from my ISP, with subnet 192.168.178.0/24, in that subnet, I have a second router, for my personal appliances, and a DMZ (everything outside the second router). 
+I have the modem+router combination from my ISP with subnet 192.168.178.0/24. In that subnet, I have a second router with subnet 192.168.1.0/24 for my personal appliances. This makes everything under the ISP router effectively a DMZ, in which my server resides.
 
-Because of the second router, my client is in the 192.168.1.0/24 subnet, and will go to the secondary router (netgear) for clues on how to communicate with the outside world. The netgear in turn asks the ISP router, and the ISP router will ask the ISP DNS, and so on.
+Because of the second router, my client is in the 192.168.1.0/24 subnet, and will go to the secondary router (netgear) for clues on how to communicate with the outside world. The netgear router in turn asks the ISP router, and the ISP router will ask the ISP DNS, and so on, until someone knows where that damned package should go.
 
-Both my netgear router and the ISP router have no idea the `routed1` (virbr1 in my setup) exists. We need to tell someone to knock on the servers door if they have a package for the 192.168.100.0/24 subnet, and let the server handle the rest. I chose to add this piece of info (the static route) to the netgear router, but setting it on the ISP router should work too.
+Both my netgear router and the ISP router have no idea the subnet of `routed1` (virbr1 in my setup) exists. We need to tell someone to knock on the server's door if they have a package for the 192.168.100.0/24 subnet, and let the server handle the rest. I chose to add this piece of info (the static route) to the netgear router, but setting it on the ISP router should work too.
 
 To do this, I followed the following [tutorial](https://kb.netgear.com/24322/How-do-I-set-or-edit-static-routes-on-a-NETGEAR-router).
 
