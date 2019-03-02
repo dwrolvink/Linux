@@ -1,3 +1,16 @@
+## Installing vmware-workstation
+```
+uname -r 
+# note the kernel version
+sudo pacman -S yay # for AUR packages
+sudo pacman -S fuse2 gtkmm linux-headers libcanberra pcsclite 
+# chose the linux headers with your kernel version
+yay -S ncurses5-compat-libs
+yay -S vmware-workstation
+# choose the verion with your kernel version in the name
+```
+
+## Install qemu (this script is broken atm; very slow)
 ```
 # --- Server ---
 sudo pacman -Syyu
