@@ -48,7 +48,7 @@ We left off in a working xfce session (hopefully). Open a terminal and type `sud
 
 Click "create new virtual machine" > "Local install" > "Browse Local" > ~kvm-isos > Centos.iso
 
-All the rest leave default unless you wish it different.
+Leave all the other options default unless you wish it to be different.
 
 The vm window should open after you create the VM, go through the installation process here, outside of scope. (I only set the root password for this POC, and login as root in the rest of this POC.)
 
@@ -66,11 +66,11 @@ In virt-manager, select the newly created vm, and click "edit" > "connection det
 I left the rest default for this POC.
 
 #### Select new network adapter in VM settings
-Go to the virtual machine windows (the one that opened after creating the vm. If you closed it, right click the vm > "open" 
+Go to the virtual machine window (the one that opened after creating the vm. If you closed it, right click the vm > "open") 
 
-Click then on the little light bulb (second icon from the left).
+Then click on the little light bulb (second icon from the left) to go to vm settings.
 
-- Change the name of the VM overview page if you want
+- Change the name of the VM in the overview page (if you want)
 - Go to NIC <mac id>
   - network source : routed1
 
