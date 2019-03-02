@@ -5,10 +5,9 @@ scp <file location> <server>:<destination_folder>
 
 #### Create live USB from ISO
 ```
-sudo fdisk -l # to find the usb name (like sdx)
-sudo pacman -S pv  # for progress report
-sudo dd if=~/Downloads/image.iso | pv -s 2G | sudo dd of=/dev/sdx bs=4096
-
+lsblk
+umount <folder that usb is mounted to> # only needed when automount is enabled
+dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 ```
 
 ## Processes
