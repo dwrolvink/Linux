@@ -1,3 +1,8 @@
+#### Copy files over SSH
+```
+scp <file location> <server>:<destination_folder>
+```
+
 #### Create live USB from ISO
 ```
 sudo fdisk -l # to find the usb name (like sdx)
