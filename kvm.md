@@ -96,7 +96,9 @@ I added the following route:
 
 ![route](https://github.com/dwrolvink/Linux/blob/master/images/route.png)
 
-If your server and client are on the same subnet, you can add a static route to your client to tell it to point to the server as gateway for 192.168.100.0/24 (or whatever your routed kvm network subnet is). If your client doubles as server than your client already knows where to go for that subnet, as it hosts it itself (through dnsmasq btw).
+If your server and client are on the same subnet, you can add a static route to your client to tell it to point to the server as gateway for 192.168.100.0/24 (or whatever your routed kvm network subnet is). 
+
+If your client doubles as server then your client already knows where to go for that subnet, as it hosts it itself (through dnsmasq btw).
   
 #### Enable NIC in CentOS
 For some reason, in my installation of CentOS, the eth0 NIC wasn't automatically up. We'll have to change that.
