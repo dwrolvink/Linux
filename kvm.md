@@ -197,6 +197,18 @@ Now, we can edit /etc/resolv.conf: `echo "nameserver 127.0.0.1" > /etc/resolv.co
 
 `ping vmname1.dmz` should now work, and `ping vmname1` should not.
 
+# Slow SSH
+I was running a VM on my client, to which I installed Ansible, and I wanted to do ssh using the DNS and keys.
+The whole thing was super slow though, so I made some modifications on this VM:
+
+in `/etc/ssh/ssh_config`:
+- Change GSSAPIAuth(...) to no
+
+to `/etc/default/ssh` add: `-u0` (not sure if this does anything).
+
+__Restart__ the VM (restarting the service doesn't work).
+
+
 
 
 ## Installing vmware-workstation
