@@ -169,7 +169,31 @@ From the client though, things are a bit more complicated. Remember that my serv
 
 What I want to do is only send requests to the DMZ server's dnsmasq, if the request is located in the .dmz domain. This is near impossible to do with resolv.conf, so we'll need to install dnsmasq on our client too (or any server in the trusted network segment).
 
+#### Install dnsmasq
+On the client: `sudo pacman -S dnsmasq`
 
+#### Configure dnsmasq
+Open `/etc/dnsmasq.conf` and add the following lines:
+```
+address=/dmz/192.168.100.1
+server=192.168.1.1
+server=/dmz/192.168.100.1
+```
+The second server line might be redundant, but just to be on the safe side (I find it hard to check which dns is being consulted by dnsmasq).
+
+To be clear, the goal of the above is to go to `192.168.1.1` for dns queries, except when the domain is `.dmz`. 
+
+#### Configure /etc/resolv.conf
+First, to keep NetworkManager from editing /etc/resolv.conf after we reboot, open `/etc/NetworkManager/NetworkManager.conf` and add the following at the end of the file:
+```
+[main]
+dns=none
+```
+Then, restart NetworkManager: `systemctl restart NetworkManager`
+
+Now, we can edit /etc/resolv.conf: `echo "nameserver 127.0.0.1" > /etc/resolv.conf`
+
+`ping vmname1.dmz` should now work, and `ping vmname1` should not.
 
 
 
