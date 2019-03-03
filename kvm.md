@@ -157,6 +157,8 @@ On the host, do `ip address` and look for the interface that is used for routed1
 Then, add the following line to the top of `/etc/resolv.conf`: `nameserver <virbr1 ip>`.
 Now, your host should go to dnsmasq first to check for unknown hostnames.
 
+Add the same line to the resolv.conf file on your client.
+
 
 
 ## Installing vmware-workstation
