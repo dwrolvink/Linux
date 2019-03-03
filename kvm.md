@@ -1,3 +1,9 @@
+### Quick reference
+```
+ssh-copy-id <servername>
+sudo virsh net-dhcp-leases --network routed1
+```
+
 
 ## Install KVM
 ITT: Installing KVM, creating a VM, and connecting from the client to the guest running on the host. 
@@ -76,7 +82,7 @@ Then click on the little light bulb (second icon from the left) to go to vm sett
 
 Note that my default subnet here is 192.168.100.0/24
 
-### Set static route in router
+#### Set static route in router
 The next step might not be necessary for you. A static route in your client may suffice. I'll explain below why I need to do this though.
 
 There may be more elegant/powerful solutions, but they are also more work and more complex. So, for our POC, a static route will suffice. 
@@ -105,7 +111,7 @@ For some reason, in my installation of CentOS, the eth0 NIC wasn't automatically
 
 Go back to the VM window and finish up the installation, then  login.
 
-If you do ip address, you'll see eth0 doesn't have an ip address.
+If you do `ip address`, you'll see eth0 doesn't have an ip address.
 I don't particularly like vi, but it's hard to install anything else when we don't have an IP address, so let's use that to edit the config file for eth0:
 
 ```
@@ -130,6 +136,26 @@ Now, go to your client and ping the vm. If it works: try `ssh root@<ip of vm>`. 
 
 If ping doesn't work: I don't know how, but try to find out how you do tracert on linux. Try to follow how the communication goes from your client, to router, to server. Good luck, you're almost there.
 
+### Configuring DNS
+Connectivity over IP should work now. And you can use the `/etc/hosts` file to point to those IPs with names. But if you want to fully automate the environment, you can use the dnsmasq utility that has already been set up by libvirt.
+
+#### Setting domain name and hostnames
+At the host do: `sudo virsh net-edit routed1` and change dns name to something like this: `<domain name='dmz'/>`
+
+At the vm: 
+```
+echo "DHCP_HOSTNAME=vmname.dmz" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+echo "vmname" > /etc/hostname
+```
+You should be able to just do `sudo virsh net-destroy routed1; net-start routed1`, and then do `service network restart` on the vms, but for me that caused the network to lock up. I had to shutdown the vms and kill virt-manager, and start it up again.
+
+From that point on, you should be able to do `ping vmname2` on vmname1. (i.e. use the DNS at the guest level).
+
+#### Configure the host to use dnsmasq
+On the host, do `ip address` and look for the interface that is used for routed1 (virbr1 for me), note the ip.
+
+Then, add the following line to the top of `/etc/resolv.conf`: `nameserver <virbr1 ip>`.
+Now, your host should go to dnsmasq first to check for unknown hostnames.
 
 
 
