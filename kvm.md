@@ -102,6 +102,10 @@ I added the following route:
 
 ![route](https://github.com/dwrolvink/Linux/blob/master/images/route.png)
 
+> Edit: Later I found out that using routed instead of NAT causes the vm's to lose connection to the internet, as the reply gets stuck at the ISP router. So that router also needs a static route like above.
+
+> Edit: after rebooting I lost connectivity to my vms from the host. `ip route add 192.168.100.0/24 via 192.168.100.1 dev virbr1` solved that issue. Add a persistent static route to completely fix this (I did it through the networkmanager gui).
+
 If your server and client are on the same subnet, you can add a static route to your client to tell it to point to the server as gateway for 192.168.100.0/24 (or whatever your routed kvm network subnet is). 
 
 If your client doubles as server then your client already knows where to go for that subnet, as it hosts it itself (through dnsmasq btw).
@@ -156,6 +160,9 @@ On the host, do `ip address` and look for the interface that is used for routed1
 
 Then, add the following line to the top of `/etc/resolv.conf`: `nameserver <virbr1 ip>`.
 Now, your host should go to dnsmasq first to check for unknown hostnames.
+
+> Edit: after rebooting I saw that networkmanager overwrites /etc/resolv.conf, so add the `192.168.100.1` nameserver via NetworkManager too (again, I did this via the gui).
+
 
 ### Configure the client to use dnsmasq
 From the client though, things are a bit more complicated. Remember that my server is "officially" in a DMZ. Even though I haven't opened any ports yet, I should design my services to not trust anything in the DMZ. If I just send my requests to the DNS on the DMZ server, and it gets hacked, the attacker could send me any answer back and my client would trust it.
