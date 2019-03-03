@@ -157,7 +157,12 @@ On the host, do `ip address` and look for the interface that is used for routed1
 Then, add the following line to the top of `/etc/resolv.conf`: `nameserver <virbr1 ip>`.
 Now, your host should go to dnsmasq first to check for unknown hostnames.
 
-Add the same line to the resolv.conf file on your client.
+### Configure the client to use dnsmasq
+From the client though, things are a bit more complicated. Remember that my server is "officially" in a DMZ. Even though I haven't opened any ports yet, I should design my services to not trust anything in the DMZ. If I just send my requests to the DNS on the DMZ server, and it gets hacked, the attacker could send me any answer back and my client would trust it.
+
+What I want to do is only send requests to the DMZ server's dnsmasq, if the request is located in the .dmz domain. This is near impossible to do with resolv.conf, so we'll need to install dnsmasq on our client too (or any server in the trusted network segment).
+
+
 
 
 
