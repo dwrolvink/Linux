@@ -29,8 +29,10 @@ mkdir kvm-isos
 
 # Get centos iso
 cd ~/kvm-isos
-wget http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+wget http://ftp.tudelft.nl/centos.org/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
 ```
+
+> nb. Above link is to the DVD iso (Dutch mirror). You can get the minimal ISO too from a different mirror from https://centos.org 
 
 ### Setup TigerVNC
 Install TigerVNC so that we can login to the server and install CentOS. There are ways to connect directly to the CentOS
