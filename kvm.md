@@ -11,8 +11,7 @@ ITT: Installing KVM, creating a VM, and connecting from the client to the guest 
 My client is Manjaro/I3, so is my server, and the client will be CentOS 7 (but that doesn't really matter much).
 
 ### Installing KVM
-It's still kind of unclear to me where KVM ends and QEMU/Libvirt begin.
-Anyhoe, this combination of packages seem to work.
+It's kind of unclear to me which packages are essential and which can be added later, but this list of packages works to give you all the necessary standard functionality:
 ```
 # --- Server ---
 sudo pacman -Syyu
@@ -32,7 +31,7 @@ cd ~/kvm-isos
 wget http://ftp.tudelft.nl/centos.org/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
 ```
 
-> nb. Above link is to the DVD iso (Dutch mirror). You can get the minimal ISO too from a different mirror from https://centos.org 
+> nb. Above link is to the DVD iso (Dutch mirror). You can get the minimal ISO too, or the above ISO from a different mirror from https://centos.org 
 
 ### Setup TigerVNC
 Install TigerVNC so that we can login to the server and install CentOS. There are ways to connect directly to the CentOS
