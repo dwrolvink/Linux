@@ -30,5 +30,8 @@ sudo pacman -S remmina libvncserver freerdp
 - Start remmina
 - Click (+)
 - `Server = <ip>:5901`
+- For me, these graphics settings created the best result:
+  - `Color Depth = True color (32 bpp)`
+  - `Quality = Medium`
 
 
