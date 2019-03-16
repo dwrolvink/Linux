@@ -1,10 +1,13 @@
-# Linux
-Manuals written as documentation for linux related stuff
+# Installation / Configuration guides and writedowns
 
-* [Configuring a fresh Manjaro-i3WM install](https://github.com/dwrolvink/Linux/blob/master/Manjaro-I3WM.md)
+* [Configuring a fresh Manjaro-i3WM install](https://github.com/dwrolvink/Linux/blob/master/Manjaro/Manjaro-I3WM.md)
+* [Installation and Configuration of KVM on Manjaro](https://github.com/dwrolvink/Linux/blob/master/Manjaro/KVM_installation.md)
+* [Enabling VNC access on CentOS](https://github.com/dwrolvink/Linux/blob/master/CentOS/setup_vnc.md)
 
-## Snippets
-These files have very little info / are incomplete
-* [Git](https://github.com/dwrolvink/Linux/blob/master/git.md)
-* [Bash](https://github.com/dwrolvink/Linux/blob/master/bash-is-retarded.md)
-* [Gentoo](https://github.com/dwrolvink/Linux/blob/master/gentoo.md)
+## QuickReference
+I fill these files with commands that I often use and want to be able to lookup quickly
+* [Git](https://github.com/dwrolvink/Linux/blob/master/QuickReference/Git.md)
+* [Bash](https://github.com/dwrolvink/Linux/blob/master/QuickReference/Bash_lookup.md)
+* [Permissions in Linux](https://github.com/dwrolvink/Linux/blob/master/QuickReference/Permissions.MD)
+* [Disk manipulations](https://github.com/dwrolvink/Linux/blob/master/QuickReference/disks.md)
+* [Miscelaneous](https://github.com/dwrolvink/Linux/blob/master/QuickReference/QuickReference.MD)
