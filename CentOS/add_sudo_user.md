@@ -3,7 +3,8 @@ Source: https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-us
 
 ```bash
 su
-useradd <user>
-passwd <user>
-usermod -aG wheel <user>
+  useradd <user>
+  passwd <user>
+  usermod -aG wheel <user>
+exit
 ```
