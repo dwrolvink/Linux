@@ -5,11 +5,11 @@ source: https://www.tecmint.com/install-and-configure-vnc-server-in-centos-7/
 ```bash
 sudo yum install tigervnc-server
 vncpasswd
-cp /lib/systemd/system/vncserver@.service  /etc/systemd/system/vncserver@:1.service
-vi /etc/systemd/system/vncserver@\:1.service # change <USER> to your username
-systemctl daemon-reload
-systemctl start vncserver@:1 # systemctl status vncserver@:1
-systemctl enable vncserver@:1
+sudo cp /lib/systemd/system/vncserver@.service  /etc/systemd/system/vncserver@:1.service
+sudo vi /etc/systemd/system/vncserver@\:1.service # change <USER> to your username
+sudo systemctl daemon-reload
+sudo systemctl start vncserver@:1 # systemctl status vncserver@:1
+sudo systemctl enable vncserver@:1
 ```
 # Setting up VNC viewer in manjaro using remmina
 source: https://wiki.archlinux.org/index.php/Remmina
