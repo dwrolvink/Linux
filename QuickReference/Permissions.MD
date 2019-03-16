@@ -1,13 +1,26 @@
 # Permissions in Linux
+## SSH Keys
+### Generate SSH key
+- Basic SSH key: `ssh-keygen -t rsa -b 4096`
+- SSH key for Github `ssh-keygen -t rsa -b 4096 -C "your@email.com"` 
 
-## Add user to group
+### SSH Agent
+To set up SSH agent to avoid retyping passwords, you can do:
+```bash
+ssh-agent bash
+ssh-add ~/.ssh/id_rsa
+```
+
+## Users and Groups
+### Add user to group
 `usermod -aG additional_groups username`
 
-## Set permissions so everything in /var/www is readable and executable by all www-data members
-### Make it so that all files created in /var/www are owned by group www-data
+## Folder permissions
+### Set permissions so everything in /var/www is readable and executable by all www-data members
+#### Make it so that all files created in /var/www are owned by group www-data
 `chmod g+s /var/www`
 
-### Set default permissions
+#### Set default permissions
 `setfacl -d -m g::rx /var/www`
 
 > Execute is not set on by default, even with the above. Not sure if it is needed for applications, will research later
