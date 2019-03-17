@@ -41,3 +41,26 @@ ssh-copy-id -i ~/.ssh/id_rsa test.domainlocal
 
 ## Check connection
 For a simple connections check, do: `ansible all -m ping`
+
+## Hello World Playbook
+In the installation step we've already made a playbook folder. It doesn't matter where you create this folder btw.
+
+Let's create a playbook in that folder, called HelloWorld.yml. [Source](https://codingbee.net/ansible/ansible-a-hello-world-playbook).
+
+```bash
+vi ~/ansible/playbooks/HelloWorld.yml
+```
+Paste:
+```
+---
+- name: This is a hello-world example
+  hosts: testgroup
+  tasks: 
+  - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'.
+    copy: 
+      content: "hello world\n" 
+      dest: /tmp/testfile.txt
+```
+> Note: you could also just call the testserver directly by writing `hosts: test.domainlocal`
+
+Now run this playbook: `ansible-playbook HelloWorld.yml`
