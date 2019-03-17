@@ -64,3 +64,19 @@ Paste:
 > Note: you could also just call the testserver directly by writing `hosts: test.domainlocal`
 
 Now run this playbook: `ansible-playbook HelloWorld.yml`
+
+The output should be like the following:
+
+```
+PLAY [This is a hello-world example] *******************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [test.domainlocal]
+
+TASK [Create a file called '/tmp/testfile.txt' with the content 'hello world'.] ***
+ok: [test.domainlocal]
+
+PLAY RECAP *********************************************************************
+test.domainlocal              : ok=2    changed=0    unreachable=0    failed=0   
+```
+
