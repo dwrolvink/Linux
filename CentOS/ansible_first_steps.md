@@ -24,8 +24,9 @@ mkdir playbooks
 
 # Fill our ansible hosts file with a testserver
 su
-cp /etc/ansible/hosts /etc/ansible/hosts_backup
-echo -e "[testgroup]\ntest.domainlocal" > /etc/ansible/hosts
+    cp /etc/ansible/hosts /etc/ansible/hosts_backup
+    echo -e "[testgroup]\ntest.domainlocal" > /etc/ansible/hosts
+exit
 ```
 
 ## Setup connection
