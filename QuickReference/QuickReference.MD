@@ -31,3 +31,7 @@ __Disable middle mouse button__, create ~/.Xmodmap and fill it with: `pointer = 
 ## Fonts
 __List all available fonts__: `fc-list`
 __Get valid font name__: `fc-match <name>`
+
+
+Animated background (doesn't work with compton transparency) 
+`xwinwrap -g 1920x1080 -ov -- mpv -wid WID ~/Pictures/EmotionalEminentBarnswallow.webm --loop inf`
