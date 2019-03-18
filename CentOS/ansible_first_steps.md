@@ -125,8 +125,10 @@ Paste:
 [windows]
 win2019.domainlocal
 ```
+
+Then, edit the windows group variable file:
 ```bash
-sudo vi /etc/ansible/group_vars/windows.yaml
+sudo vi /etc/ansible/group_vars/windows
 ```
 Paste:
 ```yaml
@@ -168,3 +170,62 @@ ansible_password: "{{ windows_admin_password }}"
 
 ### Test:
 `ansible windows -m win_ping --ask-vault-pass`
+
+## Structured string encryption
+In the previous section, we've edited the windows.yaml file to include an encoded string. In this section, we'll be creating a directory structure instead of the one file:
+
+```bash
+# Old
+/etc/ansible/group_vars/windows
+
+# New
+/etc/ansible/group_vars/windows/vars
+/etc/ansible/group_vars/windows/vault
+```
+To convert our current setup to this new structure, do:
+```bash
+su
+  # Rename windows to vars, and move it to ./windows/vars
+  cd /etc/ansible/group_vars/
+  mv windows vars
+  mkdir windows
+  mv vars windows/vars
+  
+  # Remove the password line
+  vi /etc/ansible/group_vars/windows/vars.yaml # >remove the password line
+  
+  # Remove admin variable from the all file
+  echo "" > /etc/ansible/group_vars/all  # (completely empties the all file)
+exit
+```
+Now we're only missing the vault file, let's create it
+```bash
+sudo ansible-vault create windows/vault
+```
+Choose your vault password, and paste the following in the file that opens:
+```yaml
+---
+vault_ansible_password: [Admin password]
+```
+
+Optionally, we can change the vars file, so it reflects which variables are in the vault file.
+Below is how I've made it look (following the [source tutorial](http://duffney.io/SecureGroupVarsWithAnsibleValut)):
+```yaml
+---
+# non sensitive data
+ansible_user: Administrator
+ansible_connection: winrm
+ansible_winrm_server_cert_validation: ignore
+
+# sensitive data
+ansible_password: "{{ vault_ansible_password }}"
+```
+
+### Test:
+If everything is correct, you should see `ansible windows -m win_ping --ask-vault-pass` working as before.
+
+You'd be forgiven to think that this password is received by the client in an encrypted fashion too, but the only encryption here is the SSH encryption. We can see the client has access to the plain text password by using the debug module:
+
+```bash
+ansible -m debug -a 'var=hostvars[inventory_hostname]' windows
+```
