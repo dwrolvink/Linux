@@ -141,3 +141,30 @@ ansible_winrm_server_cert_validation: ignore
 ```bash
 ansible windows -m win_ping
 ```
+
+# Password encryption
+We now have an admin password in plain text, that is obviously not desirable. I'll first explain a simple way to encrypt passwords (bit ugly) [Source](https://stackoverflow.com/questions/30209062/ansible-how-to-encrypt-some-variables-in-an-inventory-file-in-a-separate-vault/44241343#44241343), and then continue on to a more structured solution. [Source](http://duffney.io/SecureGroupVarsWithAnsibleValut).
+
+## Simple string encryption
+```bash
+# Encrypt the string "[admin password]"
+ansible-vault encrypt_string [admin password] --ask-vault-pass
+
+# Create a file in /etc/ansible/group_vars called all (will always be loaded)
+sudo vi /etc/ansible/group_vars/all
+```
+Paste (change everything behind the colon with your result from the previous step):
+```yaml
+windows_admin_password: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+    66386439653236336462626566653063336164663966303231363934653561363964363833
+    3136626431626536303530376336343832656537303632313433360a626438346336353331
+```
+
+Change line 2 in `/etc/ansible/group_vars/windows` to: 
+```bash
+ansible_password: "{{ windows_admin_password }}"
+```
+
+### Test:
+`ansible windows -m win_ping --ask-vault-pass`
