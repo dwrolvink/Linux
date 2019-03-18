@@ -277,4 +277,4 @@ win2019.domainlocal | SUCCESS => {
 }
 ```
 
-To make use of more advanced authentication methods, read on in [Ansible - Windows authentication](https://github.com/dwrolvink/Linux/tree/master/CentOS) or read the [Ansible Windows Docs](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
+To make use of more advanced authentication methods, read on in [Ansible - Windows authentication](https://github.com/dwrolvink/Linux/blob/master/CentOS/ansible_windows_authentication.md) or read the [Ansible Windows Docs](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
