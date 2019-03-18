@@ -22,6 +22,13 @@ mkdir ansible
 cd ansible
 mkdir playbooks
 
+# https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#id10
+cd /etc/ansible
+su
+  mkdir group_vars
+  mkdir host_vars
+exit
+
 # Fill our ansible hosts file with a testserver
 su
     cp /etc/ansible/hosts /etc/ansible/hosts_backup
@@ -117,13 +124,18 @@ Paste:
 ```
 [windows]
 win2019.domainlocal
-
-[windows:vars]
-ansible_user=[Admin user on windows]
-ansible_password=[Admin password]
-ansible_connection=winrm
-ansible_winrm_server_cert_validation=ignore
 ```
+```bash
+sudo vi /etc/ansible/group_vars/windows.yml
+```
+Paste:
+```yaml
+---
+ansible_user: [Admin user on windows]
+ansible_password: [Admin password]
+ansible_connection: winrm
+ansible_winrm_server_cert_validation: ignore
+``` 
 
 ## Test
 ```bash
