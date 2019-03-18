@@ -59,7 +59,7 @@ Let's create a playbook in that folder, called HelloWorld.yml. [Source](https://
 vi ~/ansible/playbooks/HelloWorld.yml
 ```
 Paste:
-```
+```yaml
 ---
 - name: This is a hello-world example
   hosts: testgroup
@@ -126,7 +126,7 @@ Paste:
 win2019.domainlocal
 ```
 ```bash
-sudo vi /etc/ansible/group_vars/windows.yml
+sudo vi /etc/ansible/group_vars/windows.yaml
 ```
 Paste:
 ```yaml
