@@ -116,4 +116,10 @@ ansible_connection: winrm
 ansible_winrm_cert_pem: /home/<user>/Downloads/cert.pem
 ansible_winrm_cert_key_pem: /home/<user>/Downloads/cert_key.pem
 ansible_winrm_transport: certificate
+ansible_winrm_server_cert_validation: ignore
+```
+
+### Test:
+```bash
+ansible windows -m win_ping --ask-vault-pass
 ```
