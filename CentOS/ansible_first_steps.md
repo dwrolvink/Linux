@@ -1,6 +1,6 @@
 # Ansible (in CentOS)
 ## Setup
-```
+```yaml
 - Server1
   - Name: Controller
   - OS: CentOS
@@ -91,7 +91,7 @@ test.domainlocal              : ok=2    changed=0    unreachable=0    failed=0
 # Connect to Windows PCs
 [Source](https://www.ansible.com/blog/connecting-to-a-windows-host)
 ## Setup
-```
+```yaml
 - Server1
   - Name: Controller
   - OS: CentOS
