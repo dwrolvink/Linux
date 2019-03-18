@@ -96,9 +96,7 @@ test.domainlocal              : ok=2    changed=0    unreachable=0    failed=0
 ```
 
 ## Enable access on the Windows machine
-```
-run in powershell (admin): https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1
-```
+Run the following script in powershell (admin): `https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1`
 
 ## Install extra package on the Ansible controller machine
 [Source](https://linuxize.com/post/how-to-install-pip-on-centos-7/)
