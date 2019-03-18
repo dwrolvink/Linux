@@ -145,7 +145,7 @@ ansible windows -m win_ping
 ```
 
 # Password encryption
-We now have an admin password in plain text, that is obviously not desirable. I'll first explain a simple way to encrypt passwords (bit ugly) [Source](https://stackoverflow.com/questions/30209062/ansible-how-to-encrypt-some-variables-in-an-inventory-file-in-a-separate-vault/44241343#44241343), and then continue on to a more structured solution. [Source](http://duffney.io/SecureGroupVarsWithAnsibleValut).
+We now have an admin password in plain text, that is obviously not desirable. I'll first explain a simple way to encrypt passwords (bit ugly) [Source](https://stackoverflow.com/questions/30209062/ansible-how-to-encrypt-some-variables-in-an-inventory-file-in-a-separate-vault/44241343#44241343), and then continue on to a more structured solution. [Source](https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04).
 
 ## Simple string encryption
 ```bash
@@ -209,7 +209,7 @@ vault_ansible_password: [Admin password]
 ```
 
 Optionally, we can change the vars file, so it reflects which variables are in the vault file.
-Below is how I've made it look (following the [source tutorial](http://duffney.io/SecureGroupVarsWithAnsibleValut)):
+Below is how I've made it look (following the [source tutorial](https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04)):
 ```yaml
 ---
 # non sensitive data
@@ -228,4 +228,51 @@ You'd be forgiven to think that this password is received by the client in an en
 
 ```bash
 ansible -m debug -a 'var=hostvars[inventory_hostname]' windows
+```
+
+This gives me:
+```bash
+[dorus@awx2 windows]$ ansible -m debug -a 'var=hostvars[inventory_hostname]' windows --ask-vault-pass
+Vault password: 
+win2019.domainlocal | SUCCESS => {
+    "changed": false, 
+    "hostvars[inventory_hostname]": {
+        "ansible_check_mode": false, 
+        "ansible_connection": "winrm", 
+        "ansible_password": "[Cleartext admin password]", 
+        "ansible_playbook_python": "/usr/bin/python2", 
+        "ansible_user": "Administrator", 
+        "ansible_version": {
+            "full": "2.4.2.0", 
+            "major": 2, 
+            "minor": 4, 
+            "revision": 2, 
+            "string": "2.4.2.0"
+        }, 
+        "ansible_winrm_server_cert_validation": "ignore", 
+        "group_names": [
+            "windows"
+        ], 
+        "groups": {
+            "all": [
+                "win2019.domainlocal", 
+                "awx.domainlocal"
+            ], 
+            "testgroup": [
+                "awx.domainlocal"
+            ], 
+            "ungrouped": [], 
+            "windows": [
+                "win2019.domainlocal"
+            ]
+        }, 
+        "inventory_dir": "/etc/ansible", 
+        "inventory_file": "/etc/ansible/hosts", 
+        "inventory_hostname": "win2019.domainlocal", 
+        "inventory_hostname_short": "win2019", 
+        "omit": "__omit_place_holder__a8e95f4f364e0233ae8c1ea0dbaa6a4fb0300fc4", 
+        "playbook_dir": "/etc/ansible/group_vars/windows", 
+        "vault_ansible_password": "[Cleartext admin password]"
+    }
+}
 ```
