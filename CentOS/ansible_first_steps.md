@@ -81,3 +81,53 @@ PLAY RECAP *********************************************************************
 test.domainlocal              : ok=2    changed=0    unreachable=0    failed=0   
 ```
 
+# Connect to Windows PCs
+[Source](https://www.ansible.com/blog/connecting-to-a-windows-host)
+## Setup
+```
+- Server1
+  - Name: Controller
+  - OS: CentOS
+  - Network name: contr.domainlocal
+- Server2
+  - Name: Testserver
+  - OS: Windows Server 2019 (Desktop)
+  - Network name: win2019.domainlocal
+```
+
+## Enable access on the Windows machine
+```
+run in powershell (admin): https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1
+```
+
+## Install extra package on the Ansible controller machine
+[Source](https://linuxize.com/post/how-to-install-pip-on-centos-7/)
+```bash
+su
+    yum install epel-release
+    yum install python-pip
+    pip install --upgrade pip
+    pip install pywinrm
+exit
+```
+
+## Add a windows group to your Ansible hosts file
+```bash
+sudo vi /etc/ansible/hosts
+```
+Paste:
+```
+[windows]
+win2019.domainlocal
+
+[windows:vars]
+ansible_user=[Admin user on windows]
+ansible_password=[Admin password]
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+```
+
+## Test
+```bash
+ansible windows -m win_ping
+```
