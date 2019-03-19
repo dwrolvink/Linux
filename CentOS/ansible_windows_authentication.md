@@ -153,7 +153,7 @@ Open `/etc/ansible/windows/vars` And change the contents to something like this:
 ```yaml
 ---
 ansible_user: dorus@DWROLVINK.COM
-ansible_password: Felixsk#3
+ansible_password: Guac-doge42!
 ansible_connection: winrm
 ansible_winrm_transport: kerberos
 ansible_winrm_server_cert_validation: ignore
