@@ -77,7 +77,6 @@ $store.Close()
 The certificate will be added under LocalMachine/TrustedPeople.
 
 ### (Windows) Map certificate to user
-> The Ansible documentation points to the wrong cert folder!
 ```powershell
 $username = "Administrator"
 $password = ConvertTo-SecureString -String "Guac-doge42!" -AsPlainText -Force
