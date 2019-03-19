@@ -10,5 +10,6 @@ If I got most information in a certain section from one source, then that source
 
 - [Ansible - First steps](https://github.com/dwrolvink/Linux/blob/master/CentOS/Ansible/ansible_first_steps.md)
   Setting up Ansible, create a playbook, simple password encryption using vault
-- [Ansible - Windows authentication](https://github.com/dwrolvink/Linux/blob/master/CentOS/Ansible/ansible_windows_authentication.md)
+- [Ansible - Windows - Certificate Authentication](https://github.com/dwrolvink/Linux/blob/master/CentOS/Ansible/ansible_windows_authentication.md)
   Setting up Certificate authentication, or Kerberos authentication
+- [Ansible - Windows - Kerberos Authentication](https://github.com/dwrolvink/Linux/blob/master/CentOS/Ansible/ansible_kerberos_authentication.md)
