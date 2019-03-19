@@ -153,7 +153,7 @@ Open `/etc/ansible/windows/vars` And change the contents to something like this:
 ```yaml
 ---
 ansible_user: dorus@DWROLVINK.COM
-ansible_password: Guac-doge42!
+ansible_password: "{{ vault_ansible_password }}"
 ansible_connection: winrm
 ansible_winrm_transport: kerberos
 ansible_winrm_server_cert_validation: ignore
@@ -170,4 +170,8 @@ Open `/etc/krb5.conf` and under `[realm]`, make sure it looks like the following
 
 [domain_realm]
  .dwrolvink.com = DWROLVINK.COM
+```
+### Test:
+```bash
+ansible windows -m win_ping --ask-vault-pass
 ```
