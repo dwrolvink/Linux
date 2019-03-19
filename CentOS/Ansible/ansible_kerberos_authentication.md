@@ -2,7 +2,7 @@
 [Source](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#id9)
 
 ### Setup
-The setup is the same as the main setup, only from hereon I'll have ADDS installed on the Windows machine, and promoted it to the sole DC for `dwrolvink.com` domain. I then made a new user, `dorus@dwrolvink.com` and gave it administrative access.
+The setup is the same as the [main setup](https://github.com/dwrolvink/Linux/blob/master/CentOS/Ansible/ansible_certificate_authentication.md), only from hereon I'll have ADDS installed on the Windows machine, and promoted it to the sole DC for `dwrolvink.com` domain. I then made a new user, `dorus@dwrolvink.com` and gave it administrative access.
 
 ### (Windows) Setup DNS Reverse Lookup
 I noticed that reverse lookup zones are not automatically installed, but we need this for Kerberos to work.
