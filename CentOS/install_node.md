@@ -38,6 +38,6 @@ console.log('Server running at http://0.0.0.0:80');
 ```
 Then, do:
 ```bash
-node --inspect demo.js` 
+node --inspect demo.js
 ```
 From a machine on the same subnet, go to `http://[ip of the webserver]:8080`, you should see `Welcome Node.js`.
