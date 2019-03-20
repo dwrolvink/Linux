@@ -24,9 +24,6 @@ SITE="\
 server {                              \n\
   listen 80;                          \n\
   listen [::]:80;                     \n\
-  server_name backend.konishi.club;   \n\
-
-
   location / {                                        \n\
     proxy_pass http://localhost:8080;                \n\
     proxy_set_header Host $host;                      \n\
@@ -40,4 +37,12 @@ server {                              \n\
 "
     
 echo -e $SITE > /etc/nginx/sites-available/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+systemctl enable nginx
+systemctl start nginx
 ```
+
+## Note
+SELinux might be blocking proxy_pass. [You can turn SELinux off, or set it to permissive](https://linuxize.com/post/how-to-disable-selinux-on-centos-7/)
+
+
