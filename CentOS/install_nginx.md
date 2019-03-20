@@ -16,28 +16,35 @@ yum install -y nginx
 
 mkdir /etc/nginx/sites-available/
 mkdir /etc/nginx/sites-enabled/
-touch /etc/nginx/sites-available/default
+touch /etc/nginx/sites-available/default.conf
 ```
 
+Set contents of `/etc/nginx/sites-available/default.conf` to:
 ```bash
-SITE="\
-server {                              \n\
-  listen 80;                          \n\
-  listen [::]:80;                     \n\
-  location / {                                        \n\
-    proxy_pass http://localhost:8080;                \n\
-    proxy_set_header Host $host;                      \n\
-  }                                   \n\
-  
-  location /md/ {                                        \n\
-    proxy_pass http://localhost:8081;                \n\
-    proxy_set_header Host $host;                      \n\
-  }                                   \n\  
-}                                     \n\
-"
-    
-echo -e $SITE > /etc/nginx/sites-available/default
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+upstream my_server {
+   server 127.0.0.1:8080;
+}
+
+server { 
+ listen 80; 
+ server_name web001;
+ location / { 
+    proxy_pass http://my_server;
+  }
+  location /md/ {
+	  proxy_pass http://127.0.0.1:8081;
+  }
+
+} 
+```
+Add the following to the bottom of the http block in `/etc/nginx/nginx.conf`:
+```bash
+include /etc/nginx/sites-enabled/*.conf;
+server_names_hash_bucket_size 64;
+```
+Enable the default site and start nginx
+```bash
+ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 systemctl enable nginx
 systemctl start nginx
 ```
