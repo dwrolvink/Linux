@@ -39,5 +39,5 @@ server {                              \n\
 }                                     \n\
 "
     
-echo $SITE > /etc/nginx/sites-available/default
+echo -e $SITE > /etc/nginx/sites-available/default
 ```
