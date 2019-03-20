@@ -64,5 +64,3 @@ vi /usr/local/share/.config/yarn/global/node_modules/markserv/lib/templates/mark
 > `/usr/local/share/.config/yarn/global/node_modules` is the location where yarn installs modules when you use the global tag and are logged in as root.
 
 Delete the following line (line 17 for my version): `<footer><sup><hr> Served by <a href="https://www.npmjs.com/package/markserv">MarkServ</a> | PID: {{pid}}</sup></footer>` (You can also decide to just remove the pid if you want to).
-
-Restart markserv and try again.
