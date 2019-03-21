@@ -99,6 +99,19 @@ function SetInnerHTMLByID(id, html, add=false){
         document.getElementById(id).innerHTML = html;
     }
 }
+
+// Get the value of a GET variable
+function getParameterByName(name, url) {
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, '\\$&');
+	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+	results = regex.exec(url);
+
+	if (!results) return null;
+	if (!results[2]) return '';
+
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 ```
 
 Now, make a file called index.html in your website root, and fill it with the following:
