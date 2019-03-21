@@ -72,7 +72,8 @@ systemctl enable nginx
 systemctl start nginx
 ```
 
-## Note
+## Access control
+### SELinux
 SELinux might be blocking proxy_pass. [You can turn SELinux off, or set it to permissive](https://linuxize.com/post/how-to-disable-selinux-on-centos-7/):
 
 Add the following line to `/etc/selinux/config`: 
@@ -85,6 +86,15 @@ sudo shutdown -r now
 #  Check
 sestatus
 ```
+
+### Firewalld
+CentOS likes to be on the safe side of things. We need to enable port 80 before anything will work.
+
+```bash
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --reload
+```
+
 
 ## Activating Markserv
 As you might have noticed in the `default.conf`, `/md/` reroutes to port 8081. The idea is that Markserv runs on this port.
