@@ -100,3 +100,45 @@ firewall-cmd --reload
 As you might have noticed in the `default.conf`, `/md/` reroutes to port 8081. The idea is that Markserv runs on this port.
 Go to [Installing Markserv](https://github.com/dwrolvink/Linux/blob/master/CentOS/Website/install_markserv.md) to enable Markserv.
 
+## Nginx and access from the internet
+I changed the default.conf file because I got `Access Controll Allow Origin` errors. I'm not really that familiar with that yet. You can more about it here: [Nginx Access-Control-Allow-Origin and CORS](https://distinctplace.com/2017/04/17/nginx-access-control-allow-origin-cors/).
+
+This config worked for me, not sure wheter the extra headers are necessary (in the last code block):
+```bash
+
+server {
+        listen 80;
+        server_name yeetbox www.dwrolvink.com;
+
+        location / {
+                root /var/www/dwrolvink.github.io;
+                index index.html
+                try_uri $uri $uri/ =404;
+        }
+
+        location /md/ {
+
+		# Simple requests
+    		if ($request_method ~* "(GET|POST)") {
+      			add_header "Access-Control-Allow-Origin"  *;
+    		}
+
+		# Preflighted requests
+		if ($request_method = OPTIONS ) {
+			add_header "Access-Control-Allow-Origin"  *;
+			add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
+			add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
+			return 200;
+		}
+
+                proxy_pass http://localhost:8081;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-NginX-Proxy true;
+                proxy_set_header Host $http_host;
+                proxy_redirect off;
+        }
+}
+```
+
+Don't forget to restart nginx after editing the default.conf file, and don't forget to open port 80 and 8081 on your router!
