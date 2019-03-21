@@ -133,5 +133,6 @@ Now, make a file called index.html in your website root, and fill it with the fo
 ```
 Tip: you can install php on your linux machine and, whilst in the website root, do: `php -S 0.0.0.0:80` to quickly test the setup. (Port 80 won't work if you already have nginx or a similar webserver running).
 
-Spin up your webserver of choice and go to localhost/?view=test. Make sure you're currently running Markserv and it's reachable at the URL that's listed in fetch.js.
+Spin up your webserver of choice and go to `http://<ip of your webserver>/?view=test`. 
+> Make sure you're currently running Markserv and it's reachable at the URL that's listed in fetch.js.
 
