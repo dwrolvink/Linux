@@ -14,7 +14,7 @@ sudo yum install -y nodejs
 
 # Install yarn
  curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
- sudo yum install yarn
+ sudo yum install -y yarn
 ```
 
 ### Notes
@@ -61,6 +61,14 @@ Browse to `http://[ip of the webserver]:8080` and you should see formatted markd
 ```bash
 vi /usr/local/share/.config/yarn/global/node_modules/markserv/lib/templates/markdown.html
 ```
-> `/usr/local/share/.config/yarn/global/node_modules` is the location where yarn installs modules when you use the global tag and are logged in as root.
+> `/usr/local/share/.config/yarn/global/node_modules` is the location where yarn installs modules when you use the global tag and are logged in as root. If not logged in as root, it will be saved to `/home/<username>/yarn/global/node_modules`
 
 Delete the following line (line 17 for my version): `<footer><sup><hr> Served by <a href="https://www.npmjs.com/package/markserv">MarkServ</a> | PID: {{pid}}</sup></footer>` (You can also decide to just remove the pid if you want to).
+
+I'm using markserv to serve markdown to my main website, so I actually remove everything except for the following:
+```html
+<body>
+<article class="markdown-body">
+{{{content}}}
+</article>
+```
