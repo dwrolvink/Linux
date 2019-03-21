@@ -67,7 +67,6 @@ Delete the following line (line 17 for my version): `<footer><sup><hr> Served by
 
 I'm using markserv to serve markdown to my main website, so I actually remove everything except for the following:
 ```html
-<body>
 <article class="markdown-body">
 {{{content}}}
 </article>
