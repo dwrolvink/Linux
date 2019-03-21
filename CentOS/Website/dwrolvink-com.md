@@ -17,7 +17,7 @@ All the content of the website will be written in markdown, and served by [Marks
 ## Building the fetch http javascript
 In the root of your website, make a folder called `js` and make a file called `fetch.js` in there. 
 Fill it with the following code:
-```html
+```javascript
 // Wait until the page is done loading so all the functions and elements are known.
 window.onload = function () {
     LoadHomePage();
