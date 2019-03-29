@@ -66,7 +66,7 @@ Browse to `http://[ip of the webserver]:8081` and you should see formatted markd
 ```bash
 vi /usr/local/share/.config/yarn/global/node_modules/markserv/lib/templates/markdown.html
 ```
-> `/usr/local/share/.config/yarn/global/node_modules` is the location where yarn installs modules when you use the global tag and are logged in as root. If not logged in as root, it will be saved to `/home/<username>/.yarn/bin/`
+> `/usr/local/share/.config/yarn/global/node_modules` is the location where yarn installs modules when you use the global tag and are logged in as root. If not logged in as root, it will be saved to `/home/<username>/.config/yarn/global/node_modules` (and a link to the program will be here: `/home/<username>/.config/yarn/bin/markserv`.
 
 Delete the following line (line 17 for my version): `<footer><sup><hr> Served by <a href="https://www.npmjs.com/package/markserv">MarkServ</a> | PID: {{pid}}</sup></footer>` (You can also decide to just remove the pid if you want to).
 
