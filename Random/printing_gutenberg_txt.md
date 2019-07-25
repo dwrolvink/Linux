@@ -6,6 +6,19 @@ them together to build the final book. Thin books (max 32 pages) can be printed 
 We'll be using [this book](https://www.gutenberg.org/files/1717/1717-0.txt), and (Manjaro) linux for this example. (Any 
 linux distro will do).
 
+For those who are short on time/attentionspan, this is the summary of what we'll do here (minus adjusting the fontsize!):
+```bash
+# Create pdf from .txt
+pandoc -V geometry:margin=1in -o output.pdf input.txt 
+
+# Adjust margins for printing
+pdfjam output.pdf --offset '0.3in 0in' --twoside --suffix 'margins'
+
+# Create booklet (with 5 signatures, each containing 32 pages)
+pdfjam --landscape --signature 32 output-margins.pdf -o booklet.pdf
+```
+
+### Convert .txt to pdf
 First, install the packages, these are pandoc and texlive-core. Texlive-core contains pdfjam, which we'll use to create
 the booklets. (Note that this is the name of the Arch package, on Debian based systems pdfjam is in texlive-extra).
 Pandoc contains... pandoc. This program we'll use to convert the .txt to a simple pdf. 
@@ -31,6 +44,7 @@ pandoc -V geometry:margin=1in -o output.pdf input.txt
 I changed the margin, because I don't like large margins. (At this point of the process though, I see the value of larger margins.)
 Make some test prints, and look at what margin works for you.
 
+### Creating the booklet
 Talking about margins, we'll want some extra margin on the inside of our book, because the book folds there, and this can
 make it hard to read the entire page. When we print two pages on one print face, this
 means that the two pages are not centered on their respective half faces, but are positioned a bit more to the outer edges.
@@ -78,14 +92,3 @@ signature stack between two pieces of wood and use woodglue and some fabric to m
 
 Good luck, and [let me know](http://www.dwrolvink.com/?view=contact) if you have any questions!
 
-Summary:
-```bash
-# Create pdf from .txt
-pandoc -V geometry:margin=1in -o output.pdf input.txt 
-
-# Adjust margins for printing
-pdfjam output.pdf --offset '0.3in 0in' --twoside --suffix 'margins'
-
-# Create booklet (with 5 signatures, each containing 32 pages)
-pdfjam --landscape --signature 32 output-margins.pdf -o booklet.pdf
-```
