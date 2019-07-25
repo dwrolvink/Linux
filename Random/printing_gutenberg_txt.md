@@ -18,11 +18,12 @@ pdfjam output.pdf --offset '0.3in 0in' --twoside --suffix 'margins'
 pdfjam --landscape --signature 32 output-margins.pdf -o booklet.pdf
 ```
 
-### Convert .txt to pdf
+### Installing the requirements
 First, install the packages, these are pandoc and texlive-core. Texlive-core contains pdfjam, which we'll use to create
 the booklets. (Note that this is the name of the Arch package, on Debian based systems pdfjam is in texlive-extra).
 Pandoc contains... pandoc. This program we'll use to convert the .txt to a simple pdf. 
 
+### Convert .txt to pdf
 I found out with the first test print that the standard fontsize is way too small to read. So firstly, we'll add the following 
 to the beginning of the textfile:
 
