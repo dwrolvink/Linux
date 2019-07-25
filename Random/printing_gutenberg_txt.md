@@ -61,11 +61,11 @@ blank pages at the end).
 
 ```
 # One booklet (i.e. one fold)
-# pdfjam output.pdf --suffix 'one book'
+pdfjam output.pdf --suffix 'one book'
 
 # For bigger books, make smaller booklets (signatures), and glue them together:
 # has to be a multiple of 4
-pdfjam --landscape --signature 24 output-margins.pdf -o booklet.pdf
+pdfjam --landscape --signature 32 output-margins.pdf -o booklet.pdf
 ```
 
 Now you have your booklet! Make sure to print this booklet with duplex printing turned on, and page scaling set to "fit the page",
@@ -77,3 +77,15 @@ ends when you find a page that has n+1 on the right side. Take the first signatu
 signature stack between two pieces of wood and use woodglue and some fabric to make the spine of the book.
 
 Good luck, and [let me know](http://www.dwrolvink.com/?view=contact) if you have any questions!
+
+Summary:
+```bash
+# Create pdf from .txt
+pandoc -V geometry:margin=1in -o output.pdf input.txt 
+
+# Adjust margins for printing
+pdfjam output.pdf --offset '0.3in 0in' --twoside --suffix 'margins'
+
+# Create booklet (with 5 signatures, each containing 32 pages)
+pdfjam --landscape --signature 32 output-margins.pdf -o booklet.pdf
+```
