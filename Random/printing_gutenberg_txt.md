@@ -82,7 +82,7 @@ pdfjam output.pdf --suffix 'one book'
 # has to be a multiple of 4
 pdfjam --landscape --signature 32 output-margins.pdf -o booklet.pdf
 ```
-
+### Printing & binding
 Now you have your booklet! Make sure to print this booklet with duplex printing turned on, and page scaling set to "fit the page",
 instead of "normal" (this introduces extra margin on the left on my printer which skews my print). I also had to select my paper
 source size (A4 for me), to make sure the "fit the page" scaling was done correctly.
