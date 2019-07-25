@@ -43,7 +43,7 @@ pdfjam output.pdf --offset '0.3in 0in' --twoside --suffix 'margins'
 ```
 
 The line above will create the file "output-margins.pdf". This is still a single page/print face pdf. We want to print it in 
-such a way that we can fold over the book (or signature) and have a booklet. This involves printing in duplex (twosided), and 
+such a way that we can fold over the printed stack of paper (or signature) and have a booklet. This involves printing in duplex (twosided), and 
 shuffling the pages around a little. Most adobe pdf readers have this option built in, but I can't (/won't) use those here.
 
 If you can print everything in one booklet, use the first line, otherwise, use the second. The second splits up the book into `n` 
@@ -71,5 +71,9 @@ pdfjam --landscape --signature 24 output-margins.pdf -o booklet.pdf
 Now you have your booklet! Make sure to print this booklet with duplex printing turned on, and page scaling set to "fit the page",
 instead of "normal" (this introduces extra margin on the left on my printer which skews my print). I also had to select my paper
 source size (A4 for me), to make sure the "fit the page" scaling was done correctly.
+
+Quick tip also: when printing with signatures, the first page will say "n ___ 1" as page numbers. All of the pages in the signature are in between 1 and n. This means that the signature
+ends when you find a page that has n+1 on the right side. Take the first signature and fold it over so the pages 1 and n are on the outside, and then continue to the next signature. You can use thread and needle to tie the signatures, and then press the 
+signature stack between two pieces of wood and use woodglue and some fabric to make the spine of the book.
 
 Good luck, and [let me know](http://www.dwrolvink.com/?view=contact) if you have any questions!
