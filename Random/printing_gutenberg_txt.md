@@ -21,7 +21,7 @@ pdfjam --landscape --signature 32 output-margins.pdf -o booklet.pdf
 ### Installing the requirements
 First, install the packages, these are pandoc and texlive-core. Texlive-core contains pdfjam, which we'll use to create
 the booklets. (Note that this is the name of the Arch package, on Debian based systems pdfjam is in texlive-extra).
-Pandoc contains... pandoc. This program we'll use to convert the .txt to a simple pdf. 
+Pandoc contains... pandoc. This program we'll use to convert the .txt to a simple pdf. Make sure you don't opt-out of the LateX dependencies when installing pandoc, they are vital. 
 
 ### Convert .txt to pdf
 I found out with the first test print that the standard fontsize is way too small to read. So firstly, we'll add the following 
@@ -34,7 +34,7 @@ fontsize: 14pt
 ---
 ```
 
-Pandoc will take this in as variables, and cut out this block before turning the text file into a pdf.
+Pandoc will take this in as variables, and cut out this block before turning the text file into a pdf. Note that some distributions of pandoc don't automatically install the extarticle package. Do some websearching on what to install on your distro if this is the case for you.
 
 Next, we'll create the pdf:
 
