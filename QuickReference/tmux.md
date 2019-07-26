@@ -42,7 +42,7 @@ tmux list-clients
 # Panes
 ```bash
 Prefix + %  # horizontal split
-Prefix + "  # vertical split
+Prefix + "  # vertical split (")
 
 Prefix + o  # swap panes
 Prefix + q  # show pane numbers
