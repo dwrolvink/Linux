@@ -1,3 +1,5 @@
+https://tmuxcheatsheet.com/
+
 # Config & defaults
 ```bash
 # Config file
@@ -35,4 +37,18 @@ Prefix + s 	# Select a new session for the attached client interactively.
     
 # List all clients
 tmux list-clients
+```
 
+# Panes
+```bash
+Prefix + %  # horizontal split
+Prefix + "  # vertical split
+
+Prefix + o  # swap panes
+Prefix + q  # show pane numbers
+Prefix + x  # kill pane
+Prefix + ⍽  # toggle between layouts
+
+Prefix + ;  # toggle between last active windows
+Prefix + (arrow) # move to different pane
+```
