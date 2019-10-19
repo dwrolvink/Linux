@@ -11,7 +11,8 @@
 
 | action | rax | rdi | rsi | rdx | r10 | r8 | r9 |
 | :----- | :-- | :-- | :-- | :-- | :-- | :- | :- |
-| output string to console | syscall: 1 | filedesc: 1 | buffer: ADDR | count: (int) | | | | |
+| echo | sys_write: 1 | filedesc: 1 | buffer: ADDR | count: (int) | | | | |
+| exit | sys_exit: 60 | error_code: 0 | | |  | | | |
 
 #### Registers
 ![registers](registers.png)
