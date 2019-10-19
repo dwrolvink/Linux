@@ -1,6 +1,7 @@
 ; Code written for: Linux x86_64
 ; Tutorial: https://www.youtube.com/playlist?list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn
 
+
 section .bss
     name resb 16  ; reserve 16 bytes for $name
     
