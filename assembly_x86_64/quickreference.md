@@ -62,41 +62,8 @@ _print_hello:
   ```
 
 ### Echo
-```asm
-section .bss
-    name resb 16  ; reserve 16 bytes for $name
-    
-section .data
-    hello db "Hello "
-    query db "What is your name?: "
-    
-section .text
-    global _start
-    
-_start:
-    call _getName
-    
-_getName:
-    mov rax, 0    ; sys_read
-    mov rdi, 0    ; standard_input
-    mov rsi, name ; load stored string
-    mov rdx, 16   ; number of bytes
-    syscall
-    ret
-_printName:
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, name
-    mov rdx, 16
-    syscall
-    ret
-_print_hello:
-    MOV RAX, 1      ; sys_write
-    MOV RDI, 1      ; standard_output
-    MOV RSI, text1  ; stored string
-    MOV RDX, 12     ; length of string
-    RET    
-```
+Get string from standard input using sys_read, then output it using sys_write: [echo.asm](examples/echo.asm)
+
 # Registers
 [![registers](registers2.png)](https://www.classes.cs.uchicago.edu/archive/2009/spring/22620-1/docs/handout-03.pdf)
 ![registers](registers.png)
