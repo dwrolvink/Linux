@@ -15,8 +15,6 @@ As I learn more, I'll get info from other sources too.
 | readline | `sys_read` 0   | `standard_input` 0   | | |  | | | |
 | exit     | `sys_exit` 60  | `error_code` 0       | | |  | | | |
 
-# Sections
-The data segment is read-write, since the values of variables can be altered at run time. This is in contrast to the read-only data segment (rodata segment or .rodata), which contains static constants rather than variables; it also contrasts to the code segment, also known as the text segment, which is read-only on many architectures. Uninitialized data, both variables and constants, is instead in the BSS segment. [source](https://en.wikipedia.org/wiki/Data_segment)
 
 # Examples
 ### Run asm code
@@ -28,6 +26,11 @@ Write "Hello World" to the console. [hello.asm](examples/hello.asm)
 
 ### Echo
 Get string from standard input using sys_read, then output it using sys_write: [echo.asm](examples/echo.asm)
+
+
+# Sections
+The data segment is read-write, since the values of variables can be altered at run time. This is in contrast to the read-only data segment (rodata segment or .rodata), which contains static constants rather than variables; it also contrasts to the code segment, also known as the text segment, which is read-only on many architectures. Uninitialized data, both variables and constants, is instead in the BSS segment. [source](https://en.wikipedia.org/wiki/Data_segment)
+
 
 ---
 
