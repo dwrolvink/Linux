@@ -4,7 +4,6 @@
 # System calls
 [System calls](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
 
-### sys_write
 | action | rax | rdi | rsi | rdx | r10 | r8 | r9 |
 | :----- | :-- | :-- | :-- | :-- | :-- | :- | :- |
 | echo     | `sys_write` 1  | `standard_output` 1  | `buffer` ADDR | `str length` (int) | | | | |
