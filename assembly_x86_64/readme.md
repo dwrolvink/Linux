@@ -41,25 +41,9 @@ _print_hello:
 ```
 
 ### Run asm code
-1. Create `run`:
-  ```bash
-  # compile object file
-  nasm -f elf64 -o ${1}.o ${1}.asm 
-  # create executable
-  ld ${1}.o -o ${1}
-  # run executable
-  ./${1}
-  # clean up
-  rm ${1}.o ${1}
-  ```
-2. Enable `run`:
-  ```bash
-  chmod +x run
-  ```
-3. Run (ex: run hello.asm):
-  ```bash
-  ./run hello
-  ```
+Create a file so that we can easily run programs from a given .asm file input by doing `./run programname`.
+
+[run](code/run.md)
 
 ### Echo
 Get string from standard input using sys_read, then output it using sys_write: [echo.asm](examples/echo.asm)
