@@ -16,19 +16,19 @@ section .text
 	global _start
     
 _start:
-	call cls				; clearscreen
-	mov rax, text_query 	; ask for name
+	call cls		; clearscreen
+	mov rax, text_query	; ask for name
 	call print
 
-	call _getName			; readln
-	call cls				; clearscreen
+	call _getName		; readln
+	call cls		; clearscreen
 	
-	mov rax, text_hello		; print hello
+	mov rax, text_hello	; print hello
 	call print
-	mov rax, name			; print name
+	mov rax, name		; print name
 	call print
 
-	call exit				; exit program
+	call exit		; exit program
 
 ; script subroutines 
 ; ----------------------------------------------
@@ -63,14 +63,14 @@ print:
 __print_loop:
 	inc rax				; $i++, $i-> $string[$i]
 	inc rbx				; $count++
-	mov cl, [rax]   	; move 8 bit (one ASCII char) into cl
+	mov cl, [rax]   		; move 8 bit (one ASCII char) into cl
 	cmp cl, 0			; (char == $null)
-	jne __print_loop 	; else
+	jne __print_loop 		; else
 
-	mov rax, 1     	 	; sys_write
-    mov rdi, 1      	; standard_output
+	mov rax, 1     	 		; sys_write
+	mov rdi, 1      		; standard_output
 	pop rsi 			; pop string ref to rsi
-    mov rdx, rbx		; put count in place for syscall
+	mov rdx, rbx			; put count in place for syscall
 	syscall
 	ret
 
