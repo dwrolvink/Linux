@@ -11,8 +11,34 @@
 
 | action | rax | rdi | rsi | rdx | r10 | r8 | r9 |
 | :----- | :-- | :-- | :-- | :-- | :-- | :- | :- |
-| echo | sys_write: 1 | filedesc: 1 | buffer: ADDR | count: (int) | | | | |
+| echo | sys_write: 1 | standard_output 1 | buffer: ADDR | count: (int) | | | | |
+| readline | sys_read: 0 | standard_input: 0 | 
 | exit | sys_exit: 60 | error_code: 0 | | |  | | | |
+
+# Examples
+### Hello World
+```asm
+section .data
+  text1 db "Hello World",10  ; ,10 = \n
+  
+section .text
+  global _start
+  
+_start:
+  CALL _hello_world
+  
+  ; exit program
+  MOV RAX, 60
+  MOV RDI, 0
+  syscall
+  
+_hello_world:
+  MOV RAX, 1      ; sys_write
+  MOV RDI, 1      ; standard_output
+  MOV RSI, text1  ; stored string
+  MOV RDX, 12     ; length of string
+  RET
+```
 
 # Registers
 [![registers](registers2.png)](https://www.classes.cs.uchicago.edu/archive/2009/spring/22620-1/docs/handout-03.pdf)
