@@ -58,18 +58,18 @@ _read:
 ; prints string to standard_output
 ; call by putting a string into rax
 print:
-	push rax 			; push string ref to the stack
-	mov rbx, 0			; $count = 0
+	push rax 		; push string ref to the stack
+	mov rbx, 0		; $count = 0
 __print_loop:
-	inc rax				; $i++, $i-> $string[$i]
-	inc rbx				; $count++
+	inc rax			; $i++, $i-> $string[$i]
+	inc rbx			; $count++
 	mov cl, [rax]		; move 8 bit (one ASCII char) into cl
-	cmp cl, 0			; (char == $null)
+	cmp cl, 0		; (char == $null)
 	jne __print_loop	; else
 
-	mov rax, 1			; sys_write
+	mov rax, 1		; sys_write
 	mov rdi, 1   		; standard_output
-	pop rsi 			; pop string ref to rsi
+	pop rsi 		; pop string ref to rsi
 	mov rdx, rbx		; put count in place for syscall
 	syscall
 	ret
