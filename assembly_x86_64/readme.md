@@ -27,6 +27,8 @@ Write "Hello World" to the console. [hello.asm](examples/hello.asm)
 ### Echo
 Get string from standard input using sys_read, then output it using sys_write: [echo.asm](examples/echo.asm)
 
+### A better Echo
+Using more advanced techniques, we can create standard subroutines to simplify our work: [echo_v2.asm](examples/echo_v2.asm)
 
 # Sections
 The data segment is read-write, since the values of variables can be altered at run time. This is in contrast to the read-only data segment (rodata segment or .rodata), which contains static constants rather than variables; it also contrasts to the code segment, also known as the text segment, which is read-only on many architectures. Uninitialized data, both variables and constants, is instead in the BSS segment. [source](https://en.wikipedia.org/wiki/Data_segment)
