@@ -1,5 +1,10 @@
 # Learning Assembly x86_64 in Linux
-- [Tutorials](https://www.youtube.com/playlist?list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn)
+### Tutorials
+I started out with the following youtube series on programming assembly on Linux x86_64:
+- [x86_64 Linux Assembly](https://www.youtube.com/playlist?list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn)
+
+Most of the code here comes from there, so it's a good place to start if you have a Linux x86_64 machine/vm.
+As I learn more, I'll get info from other sources too.
 
 # System calls
 [System calls](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
