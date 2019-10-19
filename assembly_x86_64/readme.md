@@ -13,9 +13,8 @@
 
 # Examples
 ### Run asm code
-Create a file so that we can easily run programs from a given .asm file input by doing `./run programname`.
-
-[run](code/run.md)
+Create a file so that we can easily run programs from a given .asm file input by doing `./run programname`. 
+[Create assembly compile script](code/run.md)
 
 ### Hello World
 Write "Hello World" to the console. [hello.asm](examples/hello.asm)
