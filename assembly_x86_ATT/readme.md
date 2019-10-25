@@ -17,8 +17,8 @@ as --32 ${1}.s -o ${1}.o
 ld -m elf_i386 -o ${1} ${1}.o
 # run program
 ./${1}
-# the book I use starts off with returning via the exit code, so print this too
-# before executing anything else
+# the book I use starts off with returning data via the exit code, 
+# so print this too before executing anything else
 echo "Exited with code: $?"
 # clean up compiled files
 rm ${1}.o ${1}
