@@ -1,3 +1,5 @@
+%include "lib/linux64.inc"
+
 section .bss
     name resb 16  ; reserve 16 bytes for $name
     
@@ -7,7 +9,7 @@ section .data
 	text_hello db "Hello ",0
 
 	; lib data
-	ClearTerm db   27,"[H",27,"[2J",0    ; <ESC> [H <ESC> [2J ; needed for cls()
+	%include "lib/std_data.inc"
     
 section .text
 	global _start
