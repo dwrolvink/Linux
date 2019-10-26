@@ -33,6 +33,11 @@ Get string from standard input using sys_read, then output it using sys_write: [
 ### A better Echo
 Using more advanced techniques, we can create standard subroutines to simplify our work: [echo_v2.asm](examples/echo_v2.asm)
 
+### A cleaner Echo
+At this point, we've written a lot of code that we might want to reuse in a different project. Using the `%include` statement and macros, we put all the code that we want to reuse in a different file, `lib/linux64.inc`. All the variables that we want to reuse are put into `lib/std_data.inc`.
+
+[include](examples/include)
+
 # Sections
 The data segment is read-write, since the values of variables can be altered at run time. This is in contrast to the read-only data segment (rodata segment or .rodata), which contains static constants rather than variables; it also contrasts to the code segment, also known as the text segment, which is read-only on many architectures. Uninitialized data, both variables and constants, is instead in the BSS segment. [source](https://en.wikipedia.org/wiki/Data_segment)
 
