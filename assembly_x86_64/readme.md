@@ -1,4 +1,4 @@
-# Learning Assembly x86_64 in Linux
+# Learning Assembly x86_64 (NASM) in Linux
 ### Tutorials
 I started out with the following youtube series on programming assembly on Linux x86_64:
 - [x86_64 Linux Assembly](https://www.youtube.com/playlist?list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn)
@@ -15,6 +15,7 @@ As I learn more, I'll get info from other sources too.
 | readline | `sys_read` 0   | `standard_input` 0   | | |  | | | |
 | exit     | `sys_exit` 60  | `error_code` 0       | | |  | | | |
 
+All the code here is written in the Intel dialect, and has NASM specific code, so it has to be compiled using NASM.
 
 # Examples
 ### Run asm code
