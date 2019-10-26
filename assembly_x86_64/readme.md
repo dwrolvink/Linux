@@ -6,6 +6,8 @@ I started out with the following youtube series on programming assembly on Linux
 Most of the code here comes from there, so it's a good place to start if you have a Linux x86_64 machine/vm.
 As I learn more, I'll get info from other sources too.
 
+All the code here is written in the Intel dialect, and has NASM specific code, so it has to be compiled using NASM.
+
 # System calls
 [System calls](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
 
@@ -15,7 +17,7 @@ As I learn more, I'll get info from other sources too.
 | readline | `sys_read` 0   | `standard_input` 0   | | |  | | | |
 | exit     | `sys_exit` 60  | `error_code` 0       | | |  | | | |
 
-All the code here is written in the Intel dialect, and has NASM specific code, so it has to be compiled using NASM.
+
 
 # Examples
 ### Run asm code
