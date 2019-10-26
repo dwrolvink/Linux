@@ -36,7 +36,9 @@ Using more advanced techniques, we can create standard subroutines to simplify o
 ### A cleaner Echo
 At this point, we've written a lot of code that we might want to reuse in a different project. Using the `%include` statement and macros, we put all the code that we want to reuse in a different file, `lib/linux64.inc`. All the variables that we want to reuse are put into `lib/std_data.inc`.
 
-[include](examples/include)
+The following part of kupala's tutorial explains the use of macros/include: [Macros & Include](https://www.youtube.com/watch?v=mRTax0MLaok&list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn&index=8&t=0s)
+
+Our code can be found here: [Include & Macro example](examples/include)
 
 # Sections
 The data segment is read-write, since the values of variables can be altered at run time. This is in contrast to the read-only data segment (rodata segment or .rodata), which contains static constants rather than variables; it also contrasts to the code segment, also known as the text segment, which is read-only on many architectures. Uninitialized data, both variables and constants, is instead in the BSS segment. [source](https://en.wikipedia.org/wiki/Data_segment)
