@@ -8,7 +8,9 @@ I'm actively learning and pulling data from other sources too. This "tutorial" i
 
 All the code here is written in the Intel dialect, and has NASM specific code, so it has to be compiled using NASM (the same method as in the video tutorials by Kupala).
 
-This tutorial is written as a series of examples. These are simple programs that go from simple to more complex, adding one or two new methods in as we go along, so it's best to follow these from top to bottom. The comments in the code should be enough to follow along. Be sure to watch Kupala's video tutorials if you get stuck. I'll link specific videos too when I just add some new functionality out of the blue.
+This tutorial is written as a series of examples. These are simple programs that do the basic things that you want to know how to do when you're starting out with assembly (like reading in user input, printing strings, clearing the screen, etc). The programs stay simple, but their structure will get more complex as we used more advanced methods to organize our code. In the "echo" program I actually rewrite it multiple times to make it incrementally more easily to write. Needless to say: it's best to follow these from top to bottom. 
+
+The comments in the code should be enough to follow along. Be sure to watch Kupala's video tutorials if you get stuck. I'll link specific videos too when I just add some new functionality out of the blue.
 
 
 # Examples
@@ -27,6 +29,8 @@ Using more advanced techniques, we can create standard subroutines to simplify o
 
 ### A cleaner Echo
 At this point, we've written a lot of code that we might want to reuse in a different project. Using the `%include` statement and macros, we put all the code that we want to reuse in a different file, `lib/linux64.inc`. All the variables that we want to reuse are put into `lib/std_data.inc`.
+
+Notice how the comments in \_start are basically obsolete at this point: we are moving further away from punchcard-style programming, and closer to a language like C. We are still in charge of doing everything though, and it's still easy to go from each command to the actual operations in 2 or 3 steps. 
 
 The following part of kupala's tutorial explains the use of macros/include: [Macros & Include](https://www.youtube.com/watch?v=mRTax0MLaok&list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn&index=8&t=0s)
 
