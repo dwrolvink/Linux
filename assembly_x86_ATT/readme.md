@@ -47,3 +47,19 @@ _start:                 # start here
   int $0x80             # syscall
 ```
 
+### Functions
+> I've skipped some steps between hello world and this example. Most importantly the usage of labels, `cmp`,
+and conditional jumps. I might add these steps in later, but most introductionary tutorials on assembly will cover these.
+Se my [x86_64 tutorial](https://github.com/dwrolvink/Linux/tree/master/assembly_x86_64) for more low-level examples (in 64 bit), or read the first few chapters of the book listed above to stay in the 32 bit mindset.
+
+In this example I show how to use a function, and pass the arguments using the stack. The function will compute y = $1 ^ $2 (raise int1 by the power of int2). The answer is stored in %eax.
+
+At this point, go and read the example: [power.s](https://github.com/dwrolvink/Linux/blob/master/assembly_x86_ATT/examples/functions.s), and try to follow what happens to the stack and what use the 
+base pointer has; how the arguments are passed, and how they are cleaned up afterwards. That will make the next part easier to follow.
+
+For a simple function like this, you could just put int1 into %eax and int2 into $ebx, but then we wouldn't learn anything =]
+To use the stack effectively, we make use of the **base pointer**. This allows us to have an anchor to point around the stack,
+without having it move around as we do push and pop (yes, you read that right, the record doesn't have to be on the top of the 
+stack to be able to read it, everyone lied to you). We *could* use the stack pointer, if we do some math, but then if we change
+any code we'll have to redo all that math all over again.
+
