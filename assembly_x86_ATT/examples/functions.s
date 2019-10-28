@@ -48,9 +48,9 @@ _start:
 	# 88-84: stack reference (%ebp) [DEAD SPACE]	
 	# 84-80: $8 (result) [DEAD SPACE]
 
-	movl %eax, %ebx			  # put result of the power function in %ebp 
-							  # this should be 2^3 = 8
-	movl  $1, %eax            # exit (%ebx is returned)
+	movl %eax, %ebx			  	# put result of the power function in %ebp 
+						# this should be 2^3 = 8
+	movl  $1, %eax            		# exit (%ebx is returned)
 	int   $0x80
 
 	# PURPOSE:  This function is used to compute
@@ -102,7 +102,7 @@ power:
 	# 100-96: $3 (second argument)
 	# 96-92:  $2 (first argument)
 	# 92-88: return address
-	# 88-84: stack reference (%ebp)
+	# 88-84: stack reference (old %ebp)
 	# 84-80: [empty] (result); %esp: 84; %ebp: 88		
 	
 	movl  8(%ebp), %ebx  # %ebp+8 = 96 --> %ebx = $2 (first argument)
@@ -114,7 +114,7 @@ power:
 	# 100-96: $3 (second argument)
 	# 96-92:  $2 (first argument)
 	# 92-88: return address
-	# 88-84: stack reference (%ebp)
+	# 88-84: stack reference (old %ebp)
 	# 84-80: $2 (result);  %esp: 84; %ebp: 88	
 	
 power_loop_start:
@@ -134,7 +134,7 @@ end_power:
 	# 100-96: $3 (second argument)
 	# 96-92:  $2 (first argument)
 	# 92-88: return address
-	# 88-84: stack reference (%ebp)
+	# 88-84: stack reference (old %ebp)
 	# 84-80: $8 (result);  %esp: 84; %ebp: 88
 	
 	movl -4(%ebp), %eax  # return value goes in %eax (= $8)
@@ -144,7 +144,7 @@ end_power:
 	# 100-96: $3 (second argument)
 	# 96-92:  $2 (first argument)
 	# 92-88: return address
-	# 88-84: stack reference (%ebp);  %esp: 88; %ebp: 88	
+	# 88-84: stack reference (old %ebp);  %esp: 88; %ebp: 88
 	# 84-80: $8 (result) [DEAD SPACE]
 	
 	popl %ebp            # restore the base pointer
@@ -153,7 +153,7 @@ end_power:
 	# 100-96: $3 (second argument)
 	# 96-92:  $2 (first argument)
 	# 92-88: return address;          %esp: 92; %ebp = old %ebp
-	# 88-84: stack reference (%ebp) [DEAD SPACE]	
+	# 88-84: stack reference (old %ebp) [DEAD SPACE]	
 	# 84-80: $8 (result) [DEAD SPACE]	
 	
 	ret
@@ -162,5 +162,5 @@ end_power:
 	# 100-96: $3 (second argument)
 	# 96-92:  $2 (first argument);  %esp: 96; %ebp = old %ebp
 	# 92-88: return address; [DEAD SPACE]          
-	# 88-84: stack reference (%ebp) [DEAD SPACE]	
+	# 88-84: stack reference (old %ebp) [DEAD SPACE]	
 	# 84-80: $8 (result) [DEAD SPACE]		
