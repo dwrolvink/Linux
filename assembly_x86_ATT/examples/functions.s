@@ -1,7 +1,7 @@
-# Edit note: I've added the stack after each operation that influences it, so that
-# you can track how it changes and where all the data is.
+	# Edit note: I've added the stack after each operation that influences it, so that
+	# you can track how it changes and where all the data is.
 
-# PURPOSE:  Program to illustrate how functions work
+	# PURPOSE:  Program to illustrate how functions work
 	#          This program will compute the value of
 	#          2^3
 	# 
