@@ -107,7 +107,7 @@ URxvt.transparent: true
 URxvt.shading:20
 ```
 3. Folder colors (links): `URxvt*color12: #FF0000`
-2. Reload xterm settings: `xrdb .XResources`
+2. Reload xterm settings: `xrdb ~/.XResources`
 
 http://terminal.sexy/
 
