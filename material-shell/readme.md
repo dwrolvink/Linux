@@ -1,9 +1,12 @@
-# (1) Navigate to material-shell settings
+- 1 - [Navigate to material-shell settings](#1-navigate-to-material-shell-settings)
+- 2 - [Exclude window classes](#2-exclude-window-classes)
+
+# 1 - Navigate to material-shell settings
 ![](img/1.png)
 ![](img/2.png)
 
 
-# Exclude window classes
+# 2 - Exclude window classes
 Sometimes, you want an application to create windows that are not managed by material-shell. For example, when an application creates popup windows that are not recognized as such. In that case you can go to `extensions > material-shell | options > tiling settings > Window's class excluded.` See also chapter 1.
 
 ![](img/3.png)
