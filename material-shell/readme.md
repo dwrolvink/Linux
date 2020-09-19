@@ -1,5 +1,6 @@
 - 1 - [Navigate to material-shell settings](#1---navigate-to-material-shell-settings)
 - 2 - [Exclude window classes](#2---exclude-window-classes)
+- [Fixes](#Fixes)
 
 # 1 - Navigate to material-shell settings
 ![](img/1.png)
@@ -17,7 +18,7 @@ An alternative way is opening a terminal, typing `xprop | grep 'CLASS'`, hit ent
 
 ![](img/4.png)
 
-# 3- Fixes
+# Fixes
 This section has a list of people who reported problems, and how they described they fixed it.
 
 ### Constant crashes on Ubuntu 20.04
