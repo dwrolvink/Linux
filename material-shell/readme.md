@@ -1,5 +1,5 @@
-- 1 - [Navigate to material-shell settings](#1-navigate-to-material-shell-settings)
-- 2 - [Exclude window classes](#2-exclude-window-classes)
+- 1 - [Navigate to material-shell settings](#1---navigate-to-material-shell-settings)
+- 2 - [Exclude window classes](#2---exclude-window-classes)
 
 # 1 - Navigate to material-shell settings
 ![](img/1.png)
