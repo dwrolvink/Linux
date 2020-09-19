@@ -16,3 +16,9 @@ To know what to type in, make sure you have the application open that you want t
 An alternative way is opening a terminal, typing `xprop | grep 'CLASS'`, hit enter, and then click on the window of interest. The wmclass will then be the second value that is returned.
 
 ![](img/4.png)
+
+# 3- Fixes
+This section has a list of people who reported problems, and how they described they fixed it.
+
+### Constant crashes on Ubuntu 20.04
+> I previously had a problem with material shell on ubuntu 20.04. Every few minutes it crashed. I (at least for me) found a fix, which is to install GNOME session and use that instead of the default Ubuntu one (`sudo apt install -y gnome-session`).
