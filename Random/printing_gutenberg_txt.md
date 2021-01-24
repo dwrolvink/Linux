@@ -91,5 +91,5 @@ Quick tip also: when printing with signatures, the first page will say "n ___ 1"
 ends when you find a page that has n+1 on the right side. Take the first signature and fold it over so the pages 1 and n are on the outside, and then continue to the next signature. You can use thread and needle to tie the signatures, and then press the 
 signature stack between two pieces of wood and use woodglue and some fabric to make the spine of the book.
 
-Good luck, and [let me know](http://www.dwrolvink.com/?view=contact) if you have any questions!
+Good luck, and [let me know](https://github.com/dwrolvink/dwrolvink.com/blob/master/md/columns/photobucket.md) if you have any questions!
 
