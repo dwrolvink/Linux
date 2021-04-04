@@ -12,6 +12,13 @@
 #### Add all files to tracker
 `git add .` 
 
+#### Revert to previous commit
+```
+git revert --no-commit 21f189edb1e56655a1e1f6ac0138c8e7e361a6a8..HEAD
+git commit -m "revert"
+git push
+```
+
 ## Add github ssh key
 ```
 # generate key
